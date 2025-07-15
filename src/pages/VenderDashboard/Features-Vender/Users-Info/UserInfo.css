@@ -1,0 +1,546 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.vendor-user-info-vui {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.header-vui {
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content-vui {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section-vui {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.company-logo-vui {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(0, 166, 230, 0.3);
+}
+
+.brand-info-vui h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.2rem;
+}
+
+.brand-info-vui span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.header-actions-vui {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notification-btn-vui {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.notification-btn-vui:hover {
+  background: rgba(0, 166, 230, 0.2);
+  transform: translateY(-2px);
+}
+
+.vendor-profile-vui {
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Main Content */
+.main-content-vui {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header-vui {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.back-btn-vui {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn-vui:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+}
+
+.page-header-vui h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Glass Card Effect */
+.glass-card-vui {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card-vui:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 166, 230, 0.1);
+}
+
+/* Profile Section */
+.profile-section-vui {
+  margin-bottom: 2rem;
+}
+
+.profile-header-vui {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-image-container-vui {
+  position: relative;
+}
+
+.profile-image-vui {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(0, 166, 230, 0.5);
+}
+
+.status-indicator-vui {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #1a1a1a;
+}
+
+.status-indicator-vui.active-vui {
+  background: #4ade80;
+}
+
+.profile-details-vui h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.user-id-vui {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.membership-badge-vui {
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.profile-stats-vui {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.stat-vui {
+  text-align: center;
+}
+
+.stat-value-vui {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00a6e6;
+}
+
+.stat-label-vui {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Info Grid */
+.info-grid-vui {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-card-vui h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #00a6e6;
+}
+
+.info-item-vui {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item-vui:last-child {
+  border-bottom: none;
+}
+
+.info-label-vui {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.info-value-vui {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.info-value-vui.highlight-vui {
+  color: #00a6e6;
+  font-size: 1.1rem;
+}
+
+.info-value-vui.premium-vui {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Bookings Section */
+.bookings-section-vui {
+  margin-bottom: 2rem;
+}
+
+.bookings-section-vui h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #00a6e6;
+}
+
+.bookings-list-vui {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking-item-vui {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.booking-item-vui:hover {
+  background: rgba(0, 166, 230, 0.05);
+  border-color: rgba(0, 166, 230, 0.2);
+}
+
+.booking-location-vui {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.booking-details-vui {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.separator-vui {
+  margin: 0 0.5rem;
+}
+
+.booking-meta-vui {
+  text-align: right;
+}
+
+.booking-amount-vui {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #00a6e6;
+  margin-bottom: 0.5rem;
+}
+
+.booking-status-vui {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.booking-status-vui.active-vui {
+  background: rgba(74, 222, 128, 0.2);
+  color: #4ade80;
+}
+
+.booking-status-vui.completed {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+}
+
+/* Payment Section */
+.payment-section-vui {
+  margin-bottom: 2rem;
+}
+
+.payment-section-vui h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #00a6e6;
+}
+
+.payment-methods-vui {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-method-vui {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.payment-type-vui {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.payment-details-vui {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.default-badge-vui {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #000;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons-vui {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-vui {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  min-width: 150px;
+}
+
+.btn-primary-vui {
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  color: #ffffff;
+}
+
+.btn-primary-vui:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 166, 230, 0.4);
+}
+
+.btn-secondary-vui {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary-vui:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.btn-outline-vui {
+  background: transparent;
+  color: #00a6e6;
+  border: 2px solid #00a6e6;
+}
+
+.btn-outline-vui:hover {
+  background: #00a6e6;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content-vui {
+    padding: 1rem;
+  }
+
+  .header-content-vui {
+    padding: 1rem;
+  }
+
+  .profile-header-vui {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .profile-stats-vui {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .info-grid-vui {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-item-vui {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .action-buttons-vui {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-vui {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-info-vui h1 {
+    font-size: 1.4rem;
+  }
+
+  .page-header-vui {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .page-header-vui h2 {
+    font-size: 1.5rem;
+  }
+
+  .glass-card-vui {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation for smooth loading */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.glass-card-vui {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.glass-card-vui:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.glass-card-vui:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.glass-card-vui:nth-child(4) {
+  animation-delay: 0.3s;
+}

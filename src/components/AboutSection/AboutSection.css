@@ -1,0 +1,52 @@
+.about {
+  background-color: #0f0f1d;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.about__container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.about__heading {
+  font-size: 36px;
+  color: #00b4ff;
+  margin-bottom: 20px;
+}
+
+.about__text {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.about__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.about__card {
+  background-color: #1a1a2e;
+  border-radius: 10px;
+  padding: 25px 20px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 0 12px rgba(0, 180, 255, 0.12);
+}
+
+.about__card h2 {
+  font-size: 20px;
+  color: #00b4ff;
+  margin-bottom: 10px;
+}
+
+.about__card p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.4;
+}

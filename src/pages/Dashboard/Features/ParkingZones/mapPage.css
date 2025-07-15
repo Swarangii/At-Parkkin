@@ -1,0 +1,342 @@
+.map-page {
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+}
+
+.map-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+.search-container {
+  flex: 1;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-input {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  flex: 1;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #888;
+}
+
+.location-button {
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  box-shadow: 0 4px 12px rgba(0, 166, 230, 0.3);
+  transition: all 0.3s ease;
+}
+
+.location-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 166, 230, 0.4);
+}
+
+.map-container {
+  height: calc(100vh - 200px);
+  position: relative;
+  overflow: hidden;
+}
+
+.google-map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(255, 255, 255, 0.02) 30px,
+      rgba(255, 255, 255, 0.02) 60px
+    );
+}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(0, 166, 230, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(0, 136, 204, 0.1) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.user-location {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  background: rgba(0, 166, 230, 0.2);
+  padding: 10px;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 166, 230, 0.5);
+  animation: pulse-location 2s infinite;
+}
+
+.parking-marker {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 166, 230, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.parking-marker::before {
+  content: 'P';
+  transform: rotate(45deg);
+}
+
+.parking-marker:hover,
+.parking-marker.selected {
+  transform: rotate(-45deg) scale(1.2);
+  box-shadow: 0 8px 20px rgba(0, 166, 230, 0.5);
+  z-index: 10;
+}
+
+.parking-card {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+  right: 20px;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+.parking-card-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.parking-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.parking-info {
+  flex: 1;
+}
+
+.parking-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+.parking-address {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 10px 0;
+}
+
+.parking-details {
+  display: flex;
+  gap: 15px;
+}
+
+.parking-price {
+  background: linear-gradient(135deg, #00a6e6, #0088cc);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.parking-distance {
+  color: #ccc;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0 25px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.nav-item.active {
+  background: rgba(0, 166, 230, 0.1);
+  color: #00a6e6;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.nav-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-location {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .map-header {
+    padding: 15px;
+  }
+
+  .parking-card {
+    bottom: 80px;
+    left: 15px;
+    right: 15px;
+    padding: 15px;
+  }
+
+  .bottom-nav {
+    padding: 12px 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input-wrapper {
+    padding: 10px 15px;
+  }
+
+  .parking-name {
+    font-size: 16px;
+  }
+
+  .nav-icon {
+    font-size: 18px;
+  }
+
+  .nav-label {
+    font-size: 11px;
+  }
+}
