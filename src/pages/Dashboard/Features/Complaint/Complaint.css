@@ -425,6 +425,11 @@ body {
   color: #ffffff;
 }
 
+.form-group-complaint option {
+  background: #1e1e1e; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
 .form-group-complaint input,
 .form-group-complaint select,
 .form-group-complaint textarea {

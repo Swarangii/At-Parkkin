@@ -3,6 +3,9 @@ import HeaderComplaint from "./HeaderComplaint";
 import "./Complaint.css";
 import PhoneMockups from "./phoneMockups";
 import Footer from "../../../../components/Footer/Footer";
+// Import Firebase
+import { db } from "../../../../firebase"; // Apni firebase config file ka path adjust karein
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 const Complaint = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +17,9 @@ const Complaint = () => {
     priority: "medium",
   });
 
+  const [loading, setLoading] = useState(false); // Loading state for button
+  const [error, setError] = useState(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -22,22 +28,59 @@ const Complaint = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Complaint submitted:", formData);
+  //   // Handle form submission
+  //   alert(
+  //     "Your complaint has been submitted successfully! We will get back to you within 24 hours."
+  //   );
+  //   setFormData({
+  //     name: "",
+  //     email: "",
+  //     phone: "",
+  //     location: "",
+  //     complaintType: "",
+  //     description: "",
+  //     priority: "medium",
+  //   });
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Complaint submitted:", formData);
-    // Handle form submission
-    alert(
-      "Your complaint has been submitted successfully! We will get back to you within 24 hours."
-    );
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      location: "",
-      complaintType: "",
-      description: "",
-      priority: "medium",
-    });
+    setLoading(true); // Set loading to true when submission starts
+    setError(null); // Clear any previous errors
+
+    try {
+      // Add a new document with a generated ID to the "complaints" collection
+      const docRef = await addDoc(collection(db, "complaints"), {
+        ...formData, // Spread all form data
+        timestamp: serverTimestamp(), // Add a server-generated timestamp
+        status: "Pending", // Initial status for the complaint
+      });
+
+      console.log("Complaint submitted to Firebase with ID:", docRef.id);
+      alert(
+        "Your complaint has been submitted successfully! We will get back to you within 24 hours."
+      );
+
+      // Reset the form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        location: "",
+        complaintType: "",
+        description: "",
+        priority: "medium",
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      setError("Failed to submit complaint. Please try again.");
+      alert("There was an error submitting your complaint. Please try again.");
+    } finally {
+      setLoading(false); // Set loading back to false
+    }
   };
 
   return (
@@ -185,9 +228,20 @@ const Complaint = () => {
                   ></textarea>
                 </div>
               </div>
-
-              <button type="submit" className="submit-btn-complaint">
+              {/* <button type="submit" className="submit-btn-complaint">
                 Submit Complaint
+                <span className="btn-arrow-complaint">→</span>
+              </button> */}
+              {error && (
+                <p style={{ color: "red", textAlign: "center" }}>{error}</p>
+              )}{" "}
+              {/* Display error message */}
+              <button
+                type="submit"
+                className="submit-btn-complaint"
+                disabled={loading}
+              >
+                {loading ? "Submitting..." : "Submit Complaint"}
                 <span className="btn-arrow-complaint">→</span>
               </button>
             </form>
